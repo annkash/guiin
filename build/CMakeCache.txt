@@ -148,7 +148,7 @@ CMAKE_INSTALL_MANDIR:PATH=
 CMAKE_INSTALL_OLDINCLUDEDIR:PATH=/usr/include
 
 //Install path prefix, prepended onto install directories.
-CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/GUI_input
+CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/input_triangles
 
 //Run-time variable data (LOCALSTATEDIR/run)
 CMAKE_INSTALL_RUNSTATEDIR:PATH=
@@ -204,7 +204,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=GUI_input
+CMAKE_PROJECT_NAME:STATIC=input_triangles
 
 //Value Computed by CMake
 CMAKE_PROJECT_VERSION:STATIC=3.4.0
@@ -335,20 +335,20 @@ GLFW_SOURCE_DIR:STATIC=C:/guiin/glfw
 //Force use of high-performance GPU on hybrid systems
 GLFW_USE_HYBRID_HPG:BOOL=OFF
 
-//Value Computed by CMake
-GUI_input_BINARY_DIR:STATIC=C:/guiin/build
-
-//Value Computed by CMake
-GUI_input_IS_TOP_LEVEL:STATIC=ON
-
-//Value Computed by CMake
-GUI_input_SOURCE_DIR:STATIC=C:/guiin
-
 //OpenGL library for win32
 OPENGL_gl_LIBRARY:STRING=opengl32
 
 //GLU library for win32
 OPENGL_glu_LIBRARY:STRING=glu32
+
+//Value Computed by CMake
+input_triangles_BINARY_DIR:STATIC=C:/guiin/build
+
+//Value Computed by CMake
+input_triangles_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+input_triangles_SOURCE_DIR:STATIC=C:/guiin
 
 
 ########################
@@ -564,5 +564,5 @@ XINPUT_H_FOUND:INTERNAL=1
 //linker supports push/pop state
 _CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED:INTERNAL=TRUE
 //CMAKE_INSTALL_PREFIX during last run
-_GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=C:/Program Files (x86)/GUI_input
+_GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=C:/Program Files (x86)/input_triangles
 

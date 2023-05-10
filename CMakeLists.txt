@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-project(GUI_input)
+project(input_triangles)
 
 set(CXX_STANDARD 17)
 
@@ -41,20 +41,10 @@ target_link_libraries(imgui
     glfw
 )
 
-#adding glad
-file(GLOB GLAD_HEADERS glad/include/glad/glad.h glad/include/KHR/khrplatform.h)
-file(GLOB GLAD_SOURCES glad/src/glad.c)
+add_library(input input.cpp input.hpp)
 
-add_library(glad STATIC ${GLAD_SOURCES} ${GLAD_HEADERS})
-
-set(GLAD_INCLUDE_DIR_ANOTHER glad/include)
-
-target_include_directories(glad PUBLIC ${GLAD_INCLUDE_DIR_ANOTHER})
-
-target_link_libraries(glad
-    ${OPENGL_LIBRARIES}
-)
+target_link_libraries(input ${OPENGL_LIBRARIES} glfw imgui)
 
 add_executable(main main.cpp)
 
-target_link_libraries(main ${OPENGL_LIBRARIES} glfw imgui glad)
+target_link_libraries(main input)

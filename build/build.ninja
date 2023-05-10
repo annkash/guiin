@@ -11,7 +11,7 @@
 # =============================================================================
 
 # =============================================================================
-# Project: GUI_input
+# Project: input_triangles
 # Configurations: Debug
 # =============================================================================
 
@@ -115,36 +115,36 @@ build libimgui.a: CXX_STATIC_LIBRARY_LINKER__imgui_Debug CMakeFiles/imgui.dir/im
   TARGET_PDB = imgui.a.dbg
 
 # =============================================================================
-# Object build statements for STATIC_LIBRARY target glad
+# Object build statements for STATIC_LIBRARY target input
 
 
 #############################################
-# Order-only phony target for glad
+# Order-only phony target for input
 
-build cmake_object_order_depends_target_glad: phony || CMakeFiles/glad.dir
+build cmake_object_order_depends_target_input: phony || cmake_object_order_depends_target_glfw cmake_object_order_depends_target_imgui
 
-build CMakeFiles/glad.dir/glad/src/glad.c.obj: C_COMPILER__glad_Debug C$:/guiin/glad/src/glad.c || cmake_object_order_depends_target_glad
-  DEP_FILE = CMakeFiles\glad.dir\glad\src\glad.c.obj.d
+build CMakeFiles/input.dir/input.cpp.obj: CXX_COMPILER__input_Debug C$:/guiin/input.cpp || cmake_object_order_depends_target_input
+  DEP_FILE = CMakeFiles\input.dir\input.cpp.obj.d
   FLAGS = -g
-  INCLUDES = -IC:/guiin/glad/include
-  OBJECT_DIR = CMakeFiles\glad.dir
-  OBJECT_FILE_DIR = CMakeFiles\glad.dir\glad\src
+  INCLUDES = -IC:/guiin/glfw/include -IC:/guiin/imgui -IC:/guiin/imgui/backends -IC:/guiin/glfw/include/GLFW -IC:/guiin/glfw/deps/glad
+  OBJECT_DIR = CMakeFiles\input.dir
+  OBJECT_FILE_DIR = CMakeFiles\input.dir
 
 
 # =============================================================================
-# Link build statements for STATIC_LIBRARY target glad
+# Link build statements for STATIC_LIBRARY target input
 
 
 #############################################
-# Link the static library libglad.a
+# Link the static library libinput.a
 
-build libglad.a: C_STATIC_LIBRARY_LINKER__glad_Debug CMakeFiles/glad.dir/glad/src/glad.c.obj
+build libinput.a: CXX_STATIC_LIBRARY_LINKER__input_Debug CMakeFiles/input.dir/input.cpp.obj || glfw/src/libglfw3.a libimgui.a
   LANGUAGE_COMPILE_FLAGS = -g
-  OBJECT_DIR = CMakeFiles\glad.dir
+  OBJECT_DIR = CMakeFiles\input.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_FILE = libglad.a
-  TARGET_PDB = glad.a.dbg
+  TARGET_FILE = libinput.a
+  TARGET_PDB = input.a.dbg
 
 # =============================================================================
 # Object build statements for EXECUTABLE target main
@@ -153,12 +153,12 @@ build libglad.a: C_STATIC_LIBRARY_LINKER__glad_Debug CMakeFiles/glad.dir/glad/sr
 #############################################
 # Order-only phony target for main
 
-build cmake_object_order_depends_target_main: phony || cmake_object_order_depends_target_glad cmake_object_order_depends_target_glfw cmake_object_order_depends_target_imgui
+build cmake_object_order_depends_target_main: phony || cmake_object_order_depends_target_glfw cmake_object_order_depends_target_imgui cmake_object_order_depends_target_input
 
 build CMakeFiles/main.dir/main.cpp.obj: CXX_COMPILER__main_Debug C$:/guiin/main.cpp || cmake_object_order_depends_target_main
   DEP_FILE = CMakeFiles\main.dir\main.cpp.obj.d
   FLAGS = -g
-  INCLUDES = -IC:/guiin/glfw/include -IC:/guiin/imgui -IC:/guiin/imgui/backends -IC:/guiin/glfw/include/GLFW -IC:/guiin/glfw/deps/glad -IC:/guiin/glad/include
+  INCLUDES = -IC:/guiin/glfw/include -IC:/guiin/imgui -IC:/guiin/imgui/backends -IC:/guiin/glfw/include/GLFW -IC:/guiin/glfw/deps/glad
   OBJECT_DIR = CMakeFiles\main.dir
   OBJECT_FILE_DIR = CMakeFiles\main.dir
 
@@ -170,9 +170,9 @@ build CMakeFiles/main.dir/main.cpp.obj: CXX_COMPILER__main_Debug C$:/guiin/main.
 #############################################
 # Link the executable main.exe
 
-build main.exe: CXX_EXECUTABLE_LINKER__main_Debug CMakeFiles/main.dir/main.cpp.obj | glfw/src/libglfw3.a libimgui.a libglad.a glfw/src/libglfw3.a || glfw/src/libglfw3.a libglad.a libimgui.a
+build main.exe: CXX_EXECUTABLE_LINKER__main_Debug CMakeFiles/main.dir/main.cpp.obj | libinput.a libimgui.a glfw/src/libglfw3.a || glfw/src/libglfw3.a libimgui.a libinput.a
   FLAGS = -g
-  LINK_LIBRARIES = -lopengl32  -lglu32  glfw/src/libglfw3.a  libimgui.a  libglad.a  glfw/src/libglfw3.a  -lopengl32  -lglu32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  LINK_LIBRARIES = libinput.a  libimgui.a  -lopengl32  -lglu32  glfw/src/libglfw3.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\main.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
@@ -611,11 +611,11 @@ build glfw/src/CMakeFiles/update_mappings | ${cmake_ninja_workdir}glfw/src/CMake
 # =============================================================================
 # Target aliases.
 
-build glad: phony libglad.a
-
 build glfw: phony glfw/src/libglfw3.a
 
 build imgui: phony libimgui.a
+
+build input: phony libinput.a
 
 build libglfw3.a: phony glfw/src/libglfw3.a
 
@@ -633,7 +633,7 @@ build update_mappings: phony glfw/src/update_mappings
 #############################################
 # Folder: C:/guiin/build
 
-build all: phony libimgui.a libglad.a main.exe glfw/all
+build all: phony libimgui.a libinput.a main.exe glfw/all
 
 # =============================================================================
 

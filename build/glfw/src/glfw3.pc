@@ -1,7 +1,7 @@
-prefix=C:/Program Files (x86)/GUI_input
+prefix=C:/Program Files (x86)/input_triangles
 exec_prefix=${prefix}
-includedir=C:/Program Files (x86)/GUI_input/include
-libdir=C:/Program Files (x86)/GUI_input/lib
+includedir=C:/Program Files (x86)/input_triangles/include
+libdir=C:/Program Files (x86)/input_triangles/lib
 
 Name: GLFW
 Description: A multi-platform library for OpenGL, window and input
