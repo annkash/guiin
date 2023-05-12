@@ -36,8 +36,8 @@
 },
 {
   "directory": "C:/guiin/build",
-  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -IC:/guiin/glfw/include -IC:/guiin/imgui -IC:/guiin/imgui/backends -IC:/guiin/glfw/include/GLFW -IC:/guiin/glfw/deps/glad -g -o CMakeFiles\\input.dir\\input.cpp.obj -c C:\\guiin\\input.cpp",
-  "file": "C:\\guiin\\input.cpp"
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -IC:/guiin/glfw/include -IC:/guiin/imgui -IC:/guiin/imgui/backends -IC:/guiin/glfw/include/GLFW -IC:/guiin/glfw/deps/glad -g -o CMakeFiles\\GUI.dir\\GUI.cpp.obj -c C:\\guiin\\GUI.cpp",
+  "file": "C:\\guiin\\GUI.cpp"
 },
 {
   "directory": "C:/guiin/build",

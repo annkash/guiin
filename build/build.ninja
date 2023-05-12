@@ -115,36 +115,36 @@ build libimgui.a: CXX_STATIC_LIBRARY_LINKER__imgui_Debug CMakeFiles/imgui.dir/im
   TARGET_PDB = imgui.a.dbg
 
 # =============================================================================
-# Object build statements for STATIC_LIBRARY target input
+# Object build statements for STATIC_LIBRARY target GUI
 
 
 #############################################
-# Order-only phony target for input
+# Order-only phony target for GUI
 
-build cmake_object_order_depends_target_input: phony || cmake_object_order_depends_target_glfw cmake_object_order_depends_target_imgui
+build cmake_object_order_depends_target_GUI: phony || cmake_object_order_depends_target_glfw cmake_object_order_depends_target_imgui
 
-build CMakeFiles/input.dir/input.cpp.obj: CXX_COMPILER__input_Debug C$:/guiin/input.cpp || cmake_object_order_depends_target_input
-  DEP_FILE = CMakeFiles\input.dir\input.cpp.obj.d
+build CMakeFiles/GUI.dir/GUI.cpp.obj: CXX_COMPILER__GUI_Debug C$:/guiin/GUI.cpp || cmake_object_order_depends_target_GUI
+  DEP_FILE = CMakeFiles\GUI.dir\GUI.cpp.obj.d
   FLAGS = -g
   INCLUDES = -IC:/guiin/glfw/include -IC:/guiin/imgui -IC:/guiin/imgui/backends -IC:/guiin/glfw/include/GLFW -IC:/guiin/glfw/deps/glad
-  OBJECT_DIR = CMakeFiles\input.dir
-  OBJECT_FILE_DIR = CMakeFiles\input.dir
+  OBJECT_DIR = CMakeFiles\GUI.dir
+  OBJECT_FILE_DIR = CMakeFiles\GUI.dir
 
 
 # =============================================================================
-# Link build statements for STATIC_LIBRARY target input
+# Link build statements for STATIC_LIBRARY target GUI
 
 
 #############################################
-# Link the static library libinput.a
+# Link the static library libGUI.a
 
-build libinput.a: CXX_STATIC_LIBRARY_LINKER__input_Debug CMakeFiles/input.dir/input.cpp.obj || glfw/src/libglfw3.a libimgui.a
+build libGUI.a: CXX_STATIC_LIBRARY_LINKER__GUI_Debug CMakeFiles/GUI.dir/GUI.cpp.obj || glfw/src/libglfw3.a libimgui.a
   LANGUAGE_COMPILE_FLAGS = -g
-  OBJECT_DIR = CMakeFiles\input.dir
+  OBJECT_DIR = CMakeFiles\GUI.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_FILE = libinput.a
-  TARGET_PDB = input.a.dbg
+  TARGET_FILE = libGUI.a
+  TARGET_PDB = GUI.a.dbg
 
 # =============================================================================
 # Object build statements for EXECUTABLE target main
@@ -153,7 +153,7 @@ build libinput.a: CXX_STATIC_LIBRARY_LINKER__input_Debug CMakeFiles/input.dir/in
 #############################################
 # Order-only phony target for main
 
-build cmake_object_order_depends_target_main: phony || cmake_object_order_depends_target_glfw cmake_object_order_depends_target_imgui cmake_object_order_depends_target_input
+build cmake_object_order_depends_target_main: phony || cmake_object_order_depends_target_GUI cmake_object_order_depends_target_glfw cmake_object_order_depends_target_imgui
 
 build CMakeFiles/main.dir/main.cpp.obj: CXX_COMPILER__main_Debug C$:/guiin/main.cpp || cmake_object_order_depends_target_main
   DEP_FILE = CMakeFiles\main.dir\main.cpp.obj.d
@@ -170,9 +170,9 @@ build CMakeFiles/main.dir/main.cpp.obj: CXX_COMPILER__main_Debug C$:/guiin/main.
 #############################################
 # Link the executable main.exe
 
-build main.exe: CXX_EXECUTABLE_LINKER__main_Debug CMakeFiles/main.dir/main.cpp.obj | libinput.a libimgui.a glfw/src/libglfw3.a || glfw/src/libglfw3.a libimgui.a libinput.a
+build main.exe: CXX_EXECUTABLE_LINKER__main_Debug CMakeFiles/main.dir/main.cpp.obj | libGUI.a libimgui.a glfw/src/libglfw3.a || glfw/src/libglfw3.a libGUI.a libimgui.a
   FLAGS = -g
-  LINK_LIBRARIES = libinput.a  libimgui.a  -lopengl32  -lglu32  glfw/src/libglfw3.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  LINK_LIBRARIES = libGUI.a  libimgui.a  -lopengl32  -lglu32  glfw/src/libglfw3.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\main.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
@@ -611,11 +611,11 @@ build glfw/src/CMakeFiles/update_mappings | ${cmake_ninja_workdir}glfw/src/CMake
 # =============================================================================
 # Target aliases.
 
+build GUI: phony libGUI.a
+
 build glfw: phony glfw/src/libglfw3.a
 
 build imgui: phony libimgui.a
-
-build input: phony libinput.a
 
 build libglfw3.a: phony glfw/src/libglfw3.a
 
@@ -633,7 +633,7 @@ build update_mappings: phony glfw/src/update_mappings
 #############################################
 # Folder: C:/guiin/build
 
-build all: phony libimgui.a libinput.a main.exe glfw/all
+build all: phony libimgui.a libGUI.a main.exe glfw/all
 
 # =============================================================================
 

@@ -8,7 +8,7 @@ find_package(OpenGL REQUIRED)
 
 add_subdirectory(glfw)
 
-#adding imgui
+#imgui
 set(IMGUI_INCLUDE_DIR imgui)
 
 file(GLOB IMGUI_SOURCES imgui/*.cpp)
@@ -41,10 +41,10 @@ target_link_libraries(imgui
     glfw
 )
 
-add_library(input input.cpp input.hpp)
+add_library(GUI GUI.cpp GUI.hpp)
 
-target_link_libraries(input ${OPENGL_LIBRARIES} glfw imgui)
+target_link_libraries(GUI ${OPENGL_LIBRARIES} glfw imgui)
 
 add_executable(main main.cpp)
 
-target_link_libraries(main input)
+target_link_libraries(main GUI)
