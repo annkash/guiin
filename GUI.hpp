@@ -116,7 +116,7 @@ class Window{
         virtual void Update() = 0;
 };
 
-struct Triangle
+struct triangle
 {
     ImVec2 point1 = ImVec2(50, 100);
     ImVec2 point2 = ImVec2(100, 50);
@@ -127,20 +127,20 @@ struct Triangle
 class UserInterface: public Window
 {
     private:
-        inline static Triangle tr1, tr2;
+        inline static triangle m_tr1, m_tr2;
     public:
         UserInterface() = default;
         ~UserInterface() = default;
 
         virtual void Update() final;
 
-        const Triangle& Get1Triangle()
+        const triangle& Get1Triangle()
         {
-            return tr1;
+            return m_tr1;
         };
-        const Triangle& Get2Triangle()
+        const triangle& Get2Triangle()
         {
-            return tr2;
+            return m_tr2;
         };
 };
 #endif
